@@ -17,8 +17,10 @@ class BestCoinController < ApplicationController
       }
     end
     best_coin = coin_history.map do |coin|
-      { coin: coin[:coin],
-        angular_coeficient: coin[:angular_coeficient] }
+      { 
+        coin: coin[:coin],
+        angular_coeficient: coin[:angular_coeficient]
+      }
     end
     render json: {
       best_coin: best_coin.sort_by { |coin| coin[:angular_coeficient] }.reverse,

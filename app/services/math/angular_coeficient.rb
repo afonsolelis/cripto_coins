@@ -20,7 +20,10 @@ module Math
       y = prices.sum
       x_sqrt = (1..n).to_a.map { |i| i**2 }.sum
       xy = (1..n).to_a.zip(prices).map { |x, y| x * y }.sum
-      (n * xy - x * y) / (n * x_sqrt - x**2)
+      up = (n * xy - x * y)
+      down = (n * x_sqrt - x**2)
+      return 0 if down.zero?
+      up / down
     end
   end
 end
