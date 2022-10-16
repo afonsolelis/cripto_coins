@@ -1,4 +1,4 @@
 GET http://localhost:3000/best_coin
 
 ###
-GET http://localhost:3000/best_coin
+GET https://stark-shelf-72346.herokuapp.com//best_coin

@@ -23,7 +23,7 @@ module Math
       up = (n * xy - x * y)
       down = (n * x_sqrt - x**2)
       return 0 if down.zero?
-      up / down
+      up.to_f / down
     end
   end
 end
