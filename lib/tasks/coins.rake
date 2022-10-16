@@ -14,5 +14,4 @@ namespace :coins do
     end
     puts 'Coins updated!'
   end
-
 end
