@@ -29,6 +29,7 @@ module Coins
       @best_coin = @coin_history.map do |coin|
         { 
           coin: coin[:coin],
+          last_price: Coin.where(name: coin[:coin]).first.last_price.to_f,
           angular_coeficient: coin[:angular_coeficient]
         }
       end.sort_by { |coin| coin[:angular_coeficient] }.reverse
