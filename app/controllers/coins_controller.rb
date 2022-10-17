@@ -2,18 +2,15 @@ class CoinsController < ApplicationController
   before_action :set_coins
   def index
     render json: {
-      most_valuable_coin: most_valuable_coin,
-      all_coins: @coins
+      coins: @coins
     }
   end
 
   private
 
   def set_coins
-    @coins = Coin.all
-  end
-
-  def most_valuable_coin
-    @coins.max_by { |coin| coin.last_price.to_f }
+    @coins = Coin.all.map do |coin|
+      { name: coin.name, last_price: coin.last_price.to_f }
+    end.sort_by! { |coin| -coin[:last_price] }
   end
 end

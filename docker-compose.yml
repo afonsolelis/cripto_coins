@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:consistent
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: afonso88
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    build: .docker/postgres
+    restart: always
+    tty: true
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: afonso88
+volumes:
+  dbdata:

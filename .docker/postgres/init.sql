@@ -1,0 +1,2 @@
+CREATE DATABASE WorkPlace21_development;
+CREATE DATABASE WorkPlace21_test;
