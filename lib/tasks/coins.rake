@@ -1,5 +1,5 @@
 namespace :coins do
-  desc "TODO"
+  desc "U;date Coins"
   task update_coins: :environment do
     @coin_names = HTTParty.get('https://www.mercadobitcoin.net/api/coins')
     puts 'Updating coins...'
